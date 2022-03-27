@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'  
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
@@ -72,12 +72,12 @@ gem 'omniauth-facebook', '~> 8.0'
 gem 'omniauth-github', '~> 2.0'
 gem 'omniauth-twitter', '~> 1.4'
 
-# Auth, Logins, Tokens
+# (Logins, Tokens, Auth Roles,(ie Author, Editor, Instructor, Curator etc, for Admin = in console: User.first.update :admin => true)
+# [https://www.rubydoc.info/gems/pundit_roles/0.6.0] [https://github.com/RolifyCommunity/rolify]
 gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
 gem 'devise_masquerade', '~> 1.3'
-
-# Auth Roles w Devise
-gem 'pundit', '~> 2.1'
+gem 'pundit'
+gem 'rolify'
 
 # Processes
 gem 'sidekiq', '~> 6.2'

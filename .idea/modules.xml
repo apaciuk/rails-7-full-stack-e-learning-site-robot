@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/jumpstart-octo.iml" filepath="$PROJECT_DIR$/.idea/jumpstart-octo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/rails-7-e-learning.iml" filepath="$PROJECT_DIR$/.idea/rails-7-e-learning.iml" />
     </modules>
   </component>
 </project>

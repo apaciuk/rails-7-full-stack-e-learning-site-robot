@@ -1,5 +1,5 @@
 {
-  "name": "e-learning",
+  "name": "jumpstart-octo",
   "private": "true",
   "dependencies": {
     "@hotwired/stimulus": "^3.0.1",
