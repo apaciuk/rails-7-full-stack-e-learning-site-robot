@@ -8,8 +8,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 #
-#   Below are roles, add/delete as required (admin is boolean flag in users)
+#   Below are roles, add/delete as required (admin not needed, is boolean flag in users)
 
-%w[registered author].each do |role|
-  Role.find_or_create_by({ name: role })
+# %w[registered author].each do |role|
+# Role.find_or_create_by({ name: role })
+# end
+
+30.times do
+  Course.create([{
+                  title: Faker::Educator.course_name,
+                  description: Faker::TvShows::GameOfThrones.quote
+                }])
 end

@@ -5,7 +5,7 @@ class CreateCourses < ActiveRecord::Migration[7.0]
     create_table :courses do |t|
       t.string :title
       t.text :description
-      t.references :roles, null: false, foreign_key: true
+      t.references :roles, null: true, foreign_key: true
 
       t.timestamps
     end
