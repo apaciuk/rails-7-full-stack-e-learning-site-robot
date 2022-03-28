@@ -2,7 +2,7 @@
 
 <h1 class="mt-5 display-5">Courses  <%= @courses.count %></h1>
 
-<div id="courses">
+<div class="card-columns" id="courses">
   <% @courses.each do |course| %>
     <%= render course %>
     <p>
