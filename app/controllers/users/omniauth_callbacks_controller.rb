@@ -52,6 +52,19 @@ module Users
       @service = Service.where(provider: auth.provider, uid: auth.uid).first
     end
 
+    def update
+      @user = User.find(params[:id])
+      if @user.update(create_user)
+        redirect_to root_url, notice: 'User was successfully updated.'
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
+    def edit
+      @user = User.find(params[:id])
+    end
+
     def set_user # rubocop:todo Metrics/AbcSize, Metrics/MethodLength
       if user_signed_in?
         @user = current_user

@@ -15,20 +15,24 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient
   has_many :services
 
+
+  # has_many :courses, through: :roles, source: :resource, source_type: :Post
+  # has_many :creator_posts, -> { where(roles: {name: :creator}) }, through: :roles, source: :resource, source_type: :Post
+  # has_many :editor_posts, -> { where(roles: {name: :editor}) }, through: :roles, source: :resource, source_type: :Post
+
+  # validate :must_have_a_role, on: :update
+
   private
 
-  def assign_default_role
-    if roles.blank?
-      add_role(:registered)
-      #  User.find_or_create_by(UsersRoles.user_id).update(Role.resource_type = 'default')
+  def must_have_a_role
+    unless roles.any?
+      errors.add(:roles, 'must have at least 1 role')
     end
   end
 
-  # def resource_type
-  # ['registered', 'author'].each do |role|
-  #   Role.find_or_create_by({name: role})
-  # end
-  # def after_add_user(role)
-  # role
-  # end
+  def assign_default_role
+    self.add_role(:registered) if self.roles.blank?
+      #  User.find_or_create_by(UsersRoles.user_id).update(Role.resource_type = 'default')
+    end
 end
+
